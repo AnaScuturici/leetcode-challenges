@@ -6,13 +6,16 @@
  * @return {number}
  */
  const getSum = (a, b) => {
-    if(b === 0){
-        return a;
+    while(b){
+        let carry = a & b;
+        a = a ^ b;
+        b = carry << 1;
     }
-    return getSum(a ^ b, (a & b) << 1);
+    return a;
 };
 
 /*
+getSum(2, 3): 
 2 in binary = 10;
 3 in binary = 11;
 
