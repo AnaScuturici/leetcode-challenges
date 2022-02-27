@@ -1,7 +1,7 @@
 const { expect } = require("chai");
 const { hammingWeight } = require("./hammingWeight.js");
 
-describe.only("hammingWeight", () => {
+describe("hammingWeight", () => {
     // amended test to input = string (input binary string)
   it("Function produces expected results with valid input.", () => {
     expect(hammingWeight('00000000000000000000000000001011')).to.equal(3);
