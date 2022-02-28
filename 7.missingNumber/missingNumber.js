@@ -6,15 +6,13 @@
  * @return {number}
  */
 
-// index = num (summing up the differences between the index and each num, 
-//and deducting it from the length results in missing number)
+// solution using Gauss summation: maxNum * (maxNum + 1) / 2;
 
  const missingNumber = nums => {
-    let missingNum = 0;
-    for(let i = 0; i < nums.length; i++){
-        missingNum += nums[i] - i;
-    }
-    return nums.length - missingNum;
+    let max = nums.length;
+    let expectedSum = max * (max + 1) / 2;
+    let currentSum = nums.reduce((a,b) => a + b, 0);
+    return expectedSum - currentSum;
 };
 
 module.exports = { missingNumber };
