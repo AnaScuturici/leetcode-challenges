@@ -5,7 +5,10 @@
  * @return {number} - a positive integer
  */
  const reverseBits = n => {
-    
+    let str = (n >>> 0).toString(2).padStart(32,"0");
+    let reverse = str.split("").reverse().join("");
+    let output = parseInt(reverse, 2);
+    return output;
 };
 
 module.exports = { reverseBits };
