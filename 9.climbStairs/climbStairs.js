@@ -7,7 +7,8 @@ In how many distinct ways can you climb to the top?
  * @return {number}
  */
  const climbStairs = n => {
-    
+    if(n <= 1) return 1;
+    return climbStairs(n-1) + climbStairs(n-2);
 };
 
 module.exports = { climbStairs };
