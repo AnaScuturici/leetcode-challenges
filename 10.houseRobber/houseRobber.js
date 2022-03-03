@@ -12,7 +12,16 @@ return the maximum amount of money you can rob tonight without alerting the poli
  * @return {number}
  */
  const rob = nums => {
-    
+    let first = 0;
+    let second = 0;
+
+    for(let num of nums){
+        let temp = Math.max(num + first, second);
+        first = second;
+        second = temp;
+    }
+    return second;
+
 };
 
 module.exports = { rob };
