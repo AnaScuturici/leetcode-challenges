@@ -15,3 +15,5 @@ Otherwise, return false.
  const listCycle = head => {
     
 };
+
+module.exports = { listCycle };

@@ -1,7 +1,7 @@
 const { expect } = require("chai");
 const { reverseList } = require("./reverseList.js");
 
-describe.only("reverseList", () => {
+describe("reverseList", () => {
   class ListNode { 
     constructor(val, next){
       this.val = (val===undefined ? 0 : val);
