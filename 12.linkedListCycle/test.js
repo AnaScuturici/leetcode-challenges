@@ -1,7 +1,7 @@
 const { expect } = require("chai");
 const { listCycle } = require("./listCycle.js");
 
-describe.only("reverseList", () => {
+describe("listCycle", () => {
   class ListNode { 
     constructor(val, next){
       this.val = (val===undefined ? 0 : val);
