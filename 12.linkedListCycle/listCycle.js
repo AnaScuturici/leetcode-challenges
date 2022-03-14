@@ -12,17 +12,17 @@ Otherwise, return false.
  * @param {ListNode} head
  * @return {boolean}
  */
-
-// slow & fast pointers; tortoise & hare solution
  const listCycle = head => {
-    let fast = head;
-    let slow = head;
+    let set = new Set();
+    let current = head;
 
-    while (fast & fast.next){
-        fast = fast.next.next;
-        slow = slow.next;
-        if(fast === slow) 
+    while(current){
+        if(set.has(current)){
             return true;
+        } else {
+            set.add(current);
+        }
+        current = current.next;
     }
     return false;
 };
