@@ -11,7 +11,25 @@ Open brackets must be closed in the correct order.
  * @return {boolean}
  */
  const isValid = s => {
-   
+   const brackets = {
+       "(": ")",
+       "[": "]",
+       "{": "}"
+   }
+
+   const stack = [];
+
+   for(let i = 0; i < s.length; i++){
+       if(Object.keys(brackets).includes(s[i])){
+           stack.push(s[i]);
+       } else {
+           if(s[i] !== brackets[stack.pop()]){
+               return false;
+           }
+       }
+    
+   }
+   return stack.length === 0;
 };
 
 module.exports = { isValid };
