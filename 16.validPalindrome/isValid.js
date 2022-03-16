@@ -11,10 +11,17 @@
  const isValid = s => {
     if(s.length < 2) return true;
 
-    let stripped = s.replace(/[^a-z0-9]/gi, '').trim().toLowerCase();
-    let reversed = stripped.split("").reverse().join("");
+    s = s.replace(/[^a-z0-9]/gi, '').trim().toLowerCase();
     
-    return stripped === reversed;
+    let left = 0;
+    let right = s.length - 1;
+
+    while(right > left){
+        if(s.charAt(right --) !== s.charAt(left++)){
+            return false;
+        } 
+    }
+    return true;
 };
 
 module.exports = { isValid };
