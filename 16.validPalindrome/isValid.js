@@ -9,7 +9,12 @@
  * @return {boolean}
  */
  const isValid = s => {
+    if(s.length < 2) return true;
+
+    let stripped = s.replace(/[^a-z0-9]/gi, '').trim().toLowerCase();
+    let reversed = stripped.split("").reverse().join("");
     
+    return stripped === reversed;
 };
 
 module.exports = { isValid };
