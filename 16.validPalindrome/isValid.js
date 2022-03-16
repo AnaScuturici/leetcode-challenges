@@ -11,15 +11,12 @@
  const isValid = s => {
     if(s.length < 2) return true;
 
-    s = s.replace(/[^a-z0-9]/gi, '').trim().toLowerCase();
+    s = s.replace(/[^a-z0-9]/gi, '').toLowerCase();
     
-    let left = 0;
-    let right = s.length - 1;
-
-    while(right > left){
-        if(s.charAt(right --) !== s.charAt(left++)){
+    for(let i = 0; i < s.length; i++){
+        if(s[i] !== s[s.length - 1 -i]){
             return false;
-        } 
+        }
     }
     return true;
 };
