@@ -1,7 +1,7 @@
 const { expect } = require("chai");
 const { mergeLists } = require("./mergeLists.js");
 
-describe("reverseList", () => {
+describe.only("reverseList", () => {
   class ListNode { 
     constructor(val, next){
       this.val = (val===undefined ? 0 : val);
@@ -10,19 +10,15 @@ describe("reverseList", () => {
   }
 
   const createList = arr => {
-    let node, temp;
-    for(let i = arr.length - 1; i >= 0; i--){
-      if(!node){
-        node = new ListNode(arr[i]);
-      } else {
-        temp = new ListNode(arr[i]);
-        temp.next = node;
-        node = temp;
-      }
+    let head = null;
+    for (let i = arr.length - 1; i >= 0; --i) {
+      let newHead = new ListNode(arr[i]);
+      newHead.next = head;
+      head = newHead;
     }
-    return node;
-  }
-
+    return head;
+  };
+  
   let test1 = createList([1,2,4]);
   let test2 = createList([1, 3, 4]);
   let test3 = createList([]);
