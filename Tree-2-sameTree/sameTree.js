@@ -10,7 +10,13 @@ if they are structurally identical, and the nodes have the same value.
  * @return {boolean}
  */
  const isSameTree = (p, q) => {
-    
+    if(!p && !q) return true;
+    if(!p || !q) return false;
+    else {
+        return (p.value === q.value 
+        && isSameTree(p.left, q.left) 
+        && isSameTree(p.right, q.right));
+    }
 };
 
 module.exports = { isSameTree };
