@@ -7,7 +7,13 @@ Could you do it in place with O(1) extra space?
 */
 
 const rotate = (nums, k) => {
+    k = k % nums.length;
 
+    for(let i = 0; i < k; i++){
+        const last = nums.pop();
+        nums.unshift(last);
+    }
+    return nums;
 };
 
 module.exports = { rotate };
