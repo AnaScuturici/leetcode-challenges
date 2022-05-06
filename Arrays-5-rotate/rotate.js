@@ -7,15 +7,19 @@ Could you do it in place with O(1) extra space?
 */
 
 
-//  linear time (O(n)) and constant space (O(1))
+//  linear time (O(n)) and linear space (O(n))
 const rotate = (nums, k) => {
     k = k % nums.length;
+    let arr = [];
 
-    for(let i = 0; i < k; i++){
-        const last = nums.pop();
-        nums.unshift(last);
+    for(let i = 0; i < nums.length; i++) {
+        arr[(i+k) % nums.length] = nums[i];
+    }
+    for(let i = 0; i < nums.length; i++) {
+        nums[i] = arr[i];
     }
     return nums;
+
 };
 
 module.exports = { rotate };
