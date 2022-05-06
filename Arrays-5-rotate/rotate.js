@@ -6,6 +6,8 @@ there are at least three different ways to solve this problem.
 Could you do it in place with O(1) extra space?
 */
 
+
+//  linear time (O(n)) and constant space (O(1))
 const rotate = (nums, k) => {
     k = k % nums.length;
 
