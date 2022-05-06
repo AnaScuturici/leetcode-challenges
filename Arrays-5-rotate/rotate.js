@@ -7,19 +7,26 @@ Could you do it in place with O(1) extra space?
 */
 
 
-//  linear time (O(n)) and linear space (O(n))
+//  linear time (O(n)) and linear space (O(1))
 const rotate = (nums, k) => {
     k = k % nums.length;
-    let arr = [];
+    
+    const reverse = (nums, start, end) => {
+        while(start < end) {
+            let temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            start++;
+            end--;
+        }
+        return nums;
+    }
 
-    for(let i = 0; i < nums.length; i++) {
-        arr[(i+k) % nums.length] = nums[i];
-    }
-    for(let i = 0; i < nums.length; i++) {
-        nums[i] = arr[i];
-    }
+    reverse(nums, 0, nums.length -1 );
+    reverse(nums, 0, k - 1);
+    reverse(nums, k, nums.length - 1);
+
     return nums;
-
 };
 
 module.exports = { rotate };
