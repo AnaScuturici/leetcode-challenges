@@ -12,6 +12,12 @@
 const createCounter = function (n) {
     return function () {
         return n++;
+        /** n = n + 1 
+         returns n+1 and updates its value for the next call
+         so calling counter() the first time returns 11
+
+         n++ return the current value of n and THEN increments it on the next call
+         */
     };
 };
 
