@@ -1,7 +1,7 @@
 const { expect } = require("chai");
 const { createCounter } = require("./counter.js");
 
-describe.only("counter", () => {
+describe("counter", () => {
     it("should produce expected results with valid input", () => {
         const counter = createCounter(10);
         console.log(counter);
